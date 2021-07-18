@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Products{% endblock title %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+{% block body %}
+
+</br>
+</br>
+<section id="form-layout" class="mb-4">
+<div  class="container">
+    
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Fill Product Details below</h2>
+
+
+    <div class="row">
+
+        
+        <div class="col-md-12 mb-md-0 mb-5">
+            <form id="fill-form" name="productadd-form" action="/productadd" method="POST">
+            {% csrf_token %}
+                <div class="row">
+                    {% comment %} <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="number" id="product_id" name="product_id" class="form-control" placeholder="Enter Product ID">
+                        </div>
+                    </div> {% endcomment %}
+                
+                               
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" id="product_name" name="product_name" class="form-control" placeholder="Enter Product Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="category" name="category" class="form-control" placeholder="Enter Category">
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="sub_category" name="sub_category" class="form-control" placeholder="Enter Sub-Category">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="number" id="price" name="price" class="form-control" placeholder="Enter Price">
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="date" id="pub_date" name="pub_date" class="form-control" placeholder="yyyy-mm-dd">
+                        </div>
+                    </div>
+                </div>  
+                </br>              
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <textarea type="text" id="desc" name="desc" rows="2" class="form-control md-textarea" placeholder="Enter Product Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="img">Select Product Image: </label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="text-center text-md-left">
+                <a class="btn btn-outline-dark my-2" onclick="document.getElementById('fill-form').submit();">Add Product</a>
+            </div>
+            <div class="status"></div>
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+</br>
+
+{% endblock body %}

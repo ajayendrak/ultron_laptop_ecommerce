@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock title %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block body %}
+<div id='cards' class="container-fluid">
+<h2 class='heading text-center'>Trendng Laptops</h2>
+<a href="{% url 'productadd' %}" class="btn btn-outline-dark my-2" >Add Product</a>
+{% for sub_product in product %}
+    {% if forloop.first %}<div class="row">{% endif %}
+                <div class="card col-md-4 my-4">
+                    <img class="card-img-top" src="/media/{{sub_product.image}}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{sub_product.product_name}}</h5>
+                    <p class="card-text">{{sub_product.desc}}</p>
+                    <p class="card-text"><small class="text-muted">Published date: {{sub_product.pub_date}}</small></p>
+                    <p class="card-text"><strong>Rs. {{sub_product.price}}</strong></p>
+                    {% comment %} <from id='cart-form' class='cart-form' method='POST' action='/products'>
+                    {% csrf_token %}
+                    <input type="text" id='productid' name='productid' value="{{sub_product.id}}"> {% endcomment %}
+                    <Button class="btn btn-outline-dark my-2" >Add</button>
+                    {% comment %} </from> {% endcomment %}
+                </div>
+            </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
+
+</div>
+
+
+
+{% block js %}
+<script>
+console.log('working');
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else
+{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+console.log(cart);
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+</script>
+{% endblock js %} 
+
+
+
+{% endblock body %}
