@@ -15,8 +15,7 @@ def index(request):
 def about(request):
     return render(request, 'aboutus.html')
 
-def services(request):
-    return render(request, 'services.html')
+
 
 def contactus(request):
     if request.method == 'POST':
@@ -27,7 +26,7 @@ def contactus(request):
         r_info = ContactInfo(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         print(r_info)
         r_info.save()
-        messages.success(request, 'Product added in database successfuly.')
+        messages.success(request, 'Your message has been sent.')
     return render(request, 'contactus.html')
 
     

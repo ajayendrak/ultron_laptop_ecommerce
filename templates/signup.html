@@ -9,7 +9,7 @@
 {% block body %}
 
 <section id="form-layout" class="mb-4">
-<div  class="container">
+<div  class="container my-4">
     
   <h2 class="h1-responsive font-weight-bold text-center my-4">Sign Up</h2>
 
@@ -18,41 +18,61 @@
 
         
     <div class="col-md-12 mb-md-0 mb-5">
-      <form method='POST' action="/signup">
+      <form id="fill-form" method='POST' action="/signup">
       {% csrf_token %}
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
-        </div>
-        <div class="form-group">
-          <label for="firstname">First Name:</label>
-          <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="firstname">
-        </div>
-        <div class="form-group">
-          <label for="lastname">Last Name:</label>
-          <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="lastname">
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
-        </div>
-        <div class="form-group">
-          <label for="password1">Password:</label>
-          <input type="password" class="form-control" id="password1" placeholder="Enter Password" name="password1">
-        </div>
-        <div class="form-group">
-          <label for="password2">Confirm Password:</label>
-          <input type="password" class="form-control" id="password2" placeholder="Enter Confirm Password" name="password2">
-        </div>
+      <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="firstname">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="lastname">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="password" class="form-control" id="password1" placeholder="Enter Password" name="password1">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="password" class="form-control" id="password2" placeholder="Enter Confirm Password" name="password2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form mb-0">
+                      <label class="form-check-label">
+                        <input class="form-check" type="checkbox" name="remember"> Remember me
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center text-md-left">
+                  <a class="btn btn-outline-dark my-2" onclick="document.getElementById('fill-form').submit();">Register</a>
+                </div>
 
-        <div class="form-group form-check">
-          <label class="form-check-label">
-            <input class="form-check" type="checkbox" name="remember"> Remember me
-          </label>
-        </div>
-        <div class="login-btn text-center">
-          <button type="submit" class="btn btn-outline-dark my-2">Register</button>
-        </div>
+
+
+
+        
       </form>
     </div>
   </div>

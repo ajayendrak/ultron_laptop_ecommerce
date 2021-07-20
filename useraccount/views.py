@@ -53,5 +53,5 @@ def sign_up(request):
                 messages.success(request, 'You have registered account successfully!')
                 return redirect('/login')
         else:
-            messages.warning(request, 'Password is incorrect')
+            messages.warning(request, 'Fields are incorrect')
     return render(request, 'signup.html')
