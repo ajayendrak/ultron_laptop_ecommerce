@@ -13,9 +13,9 @@ Technologies used-
 6. MySQL
 
 Directory folders-
-Configuration folder- project1
-application folders - home, shop, useraccount
-static, media, templates folder
+1. Configuration folder- project1
+2. application folders - home, shop, useraccount
+3. static, media, templates folders
 
 Features-
 1. User Authentication
